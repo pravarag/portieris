@@ -183,7 +183,7 @@ spec:
 #### Vulnerability Advisor for IBM Cloud Container Registry details
 For each `container` in the pod being considered for admission, a [vulnerability status](https://cloud.ibm.com/apidocs/container-registry/va#imagestatusquerypath) report is retrieved for the `image` specified by the container.
 
-The optional `account` parameter specifies the IBM Cloud account where exemptions should be fetched from for image matching the policy repository name.
+The optional `account` parameter specifies the IBM Cloud account where exemptions should be fetched from image matching the policy repository name.
 
 If the report returns an overall status of `OK`, `WARN` or `UNSUPPORTED` the pod is allowed. In the event of any other status, or any error condition the pod is denied.
 

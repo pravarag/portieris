@@ -2,7 +2,7 @@
 
 [![Travis badge](https://api.travis-ci.org/IBM/portieris.svg?branch=master)](https://travis-ci.org/IBM/portieris)
 
-Portieris is a Kubernetes admission controller for the enforcment of image security policies. You can create image security policies for each Kubernetes namespace, or at the cluster level, and enforce different rules for different images.
+Portieris is a Kubernetes admission controller for the enforcement of image security policies. You can create image security policies for each Kubernetes namespace, or at the cluster level, and enforce different rules for different images.
 
 ## How it works
 
@@ -14,7 +14,7 @@ When you create or edit a workload, the Kubernetes API server sends a request to
 
 If trust enforcement is enabled in the policy, Portieris pulls signature information for your image from the corresponding Notary server and, if a signed version of the image exists, creates a JSON patch to edit the image name in the workload to the signed image by digest. If a signer is defined in the policy, Portieris additionally checks that the image is signed by the specified role, and verifies that the specified key was used to sign the image.
 
-If simple signing is specified by the policy, Portieris will verify the signature using using the public key and identity rules supplied in the policy and if verified similarly mutates the image name to a digest reference to ensure that concurrent tag changes cannot influence the image being pulled.
+If simple signing is specified by the policy, Portieris will verify the signature using the public key and identity rules supplied in the policy and if verified similarly mutates the image name to a digest reference to ensure that concurrent tag changes cannot influence the image being pulled.
 
 While it is possible to require both Notary trust and simple signing, the two methods must agree on the signed digest for the image. If the two methods return different signed digests, the image is denied. It is not possible to allow alternative signing methods.
 
